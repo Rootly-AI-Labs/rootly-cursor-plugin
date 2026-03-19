@@ -1,0 +1,20 @@
+{
+  "name": "rootly",
+  "version": "1.0.0",
+  "description": "Rootly incident management for Cursor - investigate incidents, check on-call, inspect services, and work from your IDE",
+  "author": {
+    "name": "Rootly AI Labs",
+    "email": "support@rootly.com",
+    "url": "https://rootly.com"
+  },
+  "keywords": [
+    "rootly",
+    "incident-management",
+    "on-call",
+    "sre",
+    "mcp",
+    "reliability"
+  ],
+  "logo": "logo.svg",
+  "primaryColor": "#D97757"
+}
