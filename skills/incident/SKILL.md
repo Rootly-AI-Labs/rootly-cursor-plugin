@@ -43,25 +43,23 @@ Keep the output compact and operational:
 ```md
 ## Incident Response Brief
 
-### Summary
 - Incident: [title] ([id])
 - Status: [status]
 - Severity: [severity]
-- Started: [time]
-
-### Timeline
-- [key event]
-
-### Related Incidents
-- [incident] - confidence [score] - [resolution summary]
-
-### Suggested Solutions
-1. [recommended action]
-
-### Current On-Call
-- Current: [name]
-- Next handoff: [time]
+- What happened: [1-2 lines]
+- Current responders / on-call: [name, team, or ownership summary]
+- Suggested next actions:
+  1. [recommended action]
+- Key risk: [main uncertainty, blocker, or "none identified"]
 ```
+
+- Default to 5-7 bullets total.
+- Put the current operational state first.
+- Omit secondary metadata unless it changes what the user should do next.
+- If related incidents or suggested solutions are weak, compress that to one short note instead of a full section.
+- Include timestamps only when they matter to urgency or handoff.
+- Prefer bullets, not tables, for the default response brief.
+- Do not list reporter identity, artifacts, counts, or links unless they materially change the operational recommendation.
 
 ### 4. Handle writes conservatively
 

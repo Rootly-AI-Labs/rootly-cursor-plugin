@@ -12,6 +12,11 @@ Investigate the relevant Rootly incident now and produce a concise response brie
 - If none exist, say so clearly.
 
 Keep the output compact, operational, and grounded in Rootly data.
+Prefer 6 short bullets or fewer before any optional extra detail.
+Lead with the current state and the next action, not background metadata.
+Only include secondary details like Slack, Jira, meeting links, or event counts if they materially help response work.
+Prefer bullets over tables for the default response.
+Do not emit a field-by-field inventory unless I explicitly ask for full incident details.
 
 Expected output should include:
 
@@ -21,5 +26,7 @@ Expected output should include:
 - `What happened:`
 - `Current responders / on-call:`
 - `Suggested next actions:`
+
+If useful, add one final short line for `Key risk:` or `Needs clarification:`.
 
 Do not ask me to add more prompt text before starting unless you truly cannot identify the incident.

@@ -7,6 +7,11 @@ Prepare a Rootly handoff now.
 
 - If I provided an incident ID, create an incident-specific handoff.
 - If I did not provide an incident ID, default to an on-call handoff.
+- Keep it short enough for a shift change note.
+- Prefer bullets over tables for the default response.
+- Summarize on-call coverage instead of listing the full roster.
+- Mention only the 1-3 most important active or recently resolved incidents that affect the next responder.
+- Do not include Slack/Jira links, long incident lists, or provenance notes unless they materially help the handoff.
 
 Expected output should include:
 
@@ -16,5 +21,7 @@ Expected output should include:
 - `Next actions:`
 - `Current on-call:`
 - `Next on-call:`
+
+If useful, add one short final line for `Watchouts:`.
 
 Do not ask for a preferred structure unless I explicitly request one.
