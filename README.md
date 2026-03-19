@@ -1,148 +1,37 @@
 # Rootly Cursor Plugin
 
-A Cursor plugin for Rootly incident response. It connects Cursor to Rootly's hosted MCP server and layers on Cursor-native skills, agents, commands, and rules for production response workflows.
+Use Rootly inside Cursor for incident response, on-call, status updates, handoffs, retrospectives, and deploy checks.
 
-## Overview
+## Quick Start
 
-This repository started from the same lightweight MCP plugin pattern as the PagerDuty Cursor plugin, then expands it into a command-first Rootly workflow plugin:
+1. Install **Rootly** from the Cursor marketplace, or add this repository as a plugin source.
+2. Create a Rootly API token in **Rootly > Settings > API Keys**.
+3. Make sure `ROOTLY_API_TOKEN` is available in the environment Cursor launches with.
+4. Restart Cursor if needed.
+5. Run `/rootly-setup`.
 
-- `.cursor-plugin/plugin.json` contains the marketplace metadata
-- `.mcp.json` registers Rootly's hosted MCP server
-- `logo.svg` provides the marketplace icon
-- `commands/` provides the main Rootly entry points users run directly
-- `skills/` contains the workflow playbooks those commands rely on
-- `agents/` contains deeper investigation specialists
-- `rules/` adds operational guardrails
-- `hooks/` validates optional Rootly repo mapping config after edits
+`/rootly-setup` verifies:
 
-The plugin targets Rootly's hosted MCP endpoint at `https://mcp.rootly.com/mcp`.
+- `ROOTLY_API_TOKEN`
+- Rootly MCP connectivity
+- a lightweight tool call
 
-## What This Plugin Includes
+## Commands
 
-### Commands
+- `/rootly-setup` - validate auth and Rootly connectivity
+- `/rootly-incident` - investigate an incident and produce a response brief
+- `/rootly-oncall` - show current on-call, next handoff, and shift health
+- `/rootly-status` - draft an internal, leadership, or customer-facing status update
+- `/rootly-brief` - generate a concise stakeholder brief
+- `/rootly-handoff` - prepare an incident or on-call handoff
+- `/rootly-retro` - draft a markdown retrospective
+- `/rootly-deploy-check` - review deploy risk using Rootly context
 
-- `rootly-setup`
-- `rootly-incident`
-- `rootly-oncall`
-- `rootly-status`
-- `rootly-brief`
-- `rootly-handoff`
-- `rootly-retro`
-- `rootly-deploy-check`
+## Examples
 
-These are the primary user-facing entry points after install.
-
-### Skills
-
-- `setup`
-- `incident`
-- `oncall`
-- `status`
-- `brief`
-- `handoff`
-- `retro`
-- `deploy-check`
-
-These are the workflow playbooks behind the command layer and also help Cursor route natural-language requests well.
-
-### Agents
-
-- `incident-investigator`: deeper root cause analysis
-- `retro-analyst`: recurring-incident and reliability trend analysis
-- `deploy-guardian`: blast-radius and deployment safety analysis
-
-### Rules
-
-- `rootly-incident-response`: always-on guardrails for evidence-based incident work and approval before writes
-
-### Hooks
-
-- validates `.cursor/rootly-config.json` after edits so repo-to-service mapping stays valid
-
-## Authentication
-
-Rootly requires an API token. Cursor's MCP docs currently recommend environment-variable based auth for custom remote servers, with config interpolation inside `headers`. This plugin now uses that pattern:
-
-```json
-{
-  "rootly": {
-    "type": "streamable-http",
-    "url": "https://mcp.rootly.com/mcp",
-    "headers": {
-      "Authorization": "Bearer ${env:ROOTLY_API_TOKEN}"
-    }
-  }
-}
-```
-
-Create a Rootly API token in **Rootly > Settings > API Keys**, then make sure `ROOTLY_API_TOKEN` is available in the environment Cursor launches with.
-
-This is the best supported auth pattern for the plugin today:
-
-- Rootly's hosted MCP server expects a bearer token
-- Cursor supports config interpolation in `headers`
-- Cursor supports OAuth for MCP servers that require it, but Rootly's current hosted setup is bearer-token based rather than OAuth-native
-
-## Installation
-
-### From the Cursor Marketplace
-
-After publication, install **Rootly** from **Settings > Plugins** or by using `/add-plugin rootly`.
-
-After install, the best first action is to run `rootly-setup` so auth and MCP connectivity are validated before the first incident task.
-
-### From Source
-
-If you are testing before marketplace publication:
-
-1. Clone this repository
-2. Add it as a plugin source in Cursor
-3. Ensure `ROOTLY_API_TOKEN` is set in the environment Cursor uses
-4. Restart Cursor if needed so the environment variable is visible to the app
-
-## Files
-
-- `.cursor-plugin/plugin.json`: Cursor marketplace metadata
-- `.mcp.json`: hosted Rootly MCP registration
-- `skills/`: Rootly incident workflows
-- `agents/`: deeper investigation specialists
-- `commands/`: primary user-facing Rootly entry points
-- `rules/`: operational guardrails
-- `hooks/`: config validation hook
-- `scripts/`: helper scripts used by hooks
-- `logo.svg`: marketplace logo asset
-- `LICENSE`: Apache 2.0 license for publication and redistribution
-
-## Optional Repo Mapping
-
-If a repository maps cleanly to one or more Rootly services, you can keep that mapping in `.cursor/rootly-config.json`:
-
-```json
-{
-  "services": ["auth-service", "auth-worker"],
-  "team": "platform-team"
-}
-```
-
-The included hook validates this file after edits.
-
-## Recommended First Run
-
-Use the `rootly-setup` command first. It is intended to:
-
-- verify `ROOTLY_API_TOKEN`
-- confirm the hosted MCP server is reachable
-- test a lightweight Rootly tool call
-- optionally map the current repository to Rootly services
-
-## Support
-
-- Rootly MCP Server: https://github.com/Rootly-AI-Labs/Rootly-MCP-server
-- Rootly API Docs: https://docs.rootly.com/api-reference/overview
-- Rootly: https://rootly.com
-
-## Notes For Publishing
-
-- The plugin is hosted-MCP-first, with a command-first workflow layer on top
-- Auth is handled through `ROOTLY_API_TOKEN`, not a hardcoded token placeholder
-- If Rootly later ships OAuth for the hosted MCP server, the auth story can be upgraded to match Cursor's OAuth-native flow
+- `/rootly-setup`
+- `/rootly-incident 4187`
+- `/rootly-status 4187`
+- `/rootly-handoff`
+- `/rootly-retro 4199`
+- `/rootly-deploy-check`
