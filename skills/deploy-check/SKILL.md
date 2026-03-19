@@ -12,6 +12,12 @@ metadata:
 
 Use this skill when the user wants a deployment safety brief.
 
+## Default behavior
+
+- If the user says only "is it safe to deploy?" or "check this deploy", do not ask for more detail first.
+- Default to using the current branch, recent commits, and current diff as the deployment context.
+- If the affected service is ambiguous, make a reasonable best-effort mapping and clearly label any uncertainty.
+
 ## Workflow
 
 ### 1. Inspect current changes
@@ -63,3 +69,4 @@ For the affected services:
 
 - Treat active high-severity incidents and weak on-call coverage as major risk multipliers.
 - If confidence is low, say so and recommend manual review.
+- Prefer producing a risk brief with explicit uncertainty over stopping to ask for more context.

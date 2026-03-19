@@ -1,11 +1,10 @@
 {
   "name": "rootly",
   "version": "1.0.0",
-  "description": "Rootly incident response for Cursor with MCP, skills, agents, commands, and rules for incidents, on-call, retrospectives, and deploy safety",
+  "description": "Rootly incident response for Cursor with MCP, commands, agents, rules, and skills for incidents, on-call, status updates, retrospectives, and deploy safety",
   "author": {
     "name": "Rootly AI Labs",
-    "email": "support@rootly.com",
-    "url": "https://rootly.com"
+    "email": "support@rootly.com"
   },
   "keywords": [
     "rootly",
@@ -18,5 +17,10 @@
     "retrospectives"
   ],
   "logo": "logo.svg",
-  "primaryColor": "#D97757"
+  "rules": "rules",
+  "skills": "skills",
+  "agents": "agents",
+  "commands": "commands",
+  "hooks": "hooks/hooks.json",
+  "mcpServers": ".mcp.json"
 }

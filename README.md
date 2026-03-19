@@ -4,14 +4,14 @@ A Cursor plugin for Rootly incident response. It connects Cursor to Rootly's hos
 
 ## Overview
 
-This repository started from the same lightweight MCP plugin pattern as the PagerDuty Cursor plugin, then expands it into a fuller Rootly workflow plugin:
+This repository started from the same lightweight MCP plugin pattern as the PagerDuty Cursor plugin, then expands it into a command-first Rootly workflow plugin:
 
 - `.cursor-plugin/plugin.json` contains the marketplace metadata
-- `mcp.json` registers Rootly's hosted MCP server
+- `.mcp.json` registers Rootly's hosted MCP server
 - `logo.svg` provides the marketplace icon
-- `skills/` contains repeatable Rootly workflows
+- `commands/` provides the main Rootly entry points users run directly
+- `skills/` contains the workflow playbooks those commands rely on
 - `agents/` contains deeper investigation specialists
-- `commands/` provides shortcut entry points into common workflows
 - `rules/` adds operational guardrails
 - `hooks/` validates optional Rootly repo mapping config after edits
 
@@ -19,33 +19,37 @@ The plugin targets Rootly's hosted MCP endpoint at `https://mcp.rootly.com/mcp`.
 
 ## What This Plugin Includes
 
+### Commands
+
+- `rootly-setup`
+- `rootly-incident`
+- `rootly-oncall`
+- `rootly-status`
+- `rootly-brief`
+- `rootly-handoff`
+- `rootly-retro`
+- `rootly-deploy-check`
+
+These are the primary user-facing entry points after install.
+
 ### Skills
 
-- `setup`: first-run onboarding, auth checks, and MCP verification
-- `incident`: live incident triage and response briefs
-- `oncall`: current on-call, handoffs, and workload context
-- `status`: internal or external incident status updates
-- `brief`: concise leadership and stakeholder summaries
-- `handoff`: incident and on-call handoff notes
-- `retro`: markdown PIR and retrospective drafts
-- `deploy-check`: pre-deploy incident and on-call risk review
+- `setup`
+- `incident`
+- `oncall`
+- `status`
+- `brief`
+- `handoff`
+- `retro`
+- `deploy-check`
+
+These are the workflow playbooks behind the command layer and also help Cursor route natural-language requests well.
 
 ### Agents
 
 - `incident-investigator`: deeper root cause analysis
 - `retro-analyst`: recurring-incident and reliability trend analysis
 - `deploy-guardian`: blast-radius and deployment safety analysis
-
-### Commands
-
-- `setup-rootly`
-- `respond-to-incident`
-- `check-oncall`
-- `write-status`
-- `generate-brief`
-- `prepare-handoff`
-- `generate-retro`
-- `deploy-safety`
 
 ### Rules
 
@@ -85,7 +89,7 @@ This is the best supported auth pattern for the plugin today:
 
 After publication, install **Rootly** from **Settings > Plugins** or by using `/add-plugin rootly`.
 
-After install, the best first action is to run the setup workflow so auth and MCP connectivity are validated before the first incident task.
+After install, the best first action is to run `rootly-setup` so auth and MCP connectivity are validated before the first incident task.
 
 ### From Source
 
@@ -99,10 +103,10 @@ If you are testing before marketplace publication:
 ## Files
 
 - `.cursor-plugin/plugin.json`: Cursor marketplace metadata
-- `mcp.json`: hosted Rootly MCP registration
+- `.mcp.json`: hosted Rootly MCP registration
 - `skills/`: Rootly incident workflows
 - `agents/`: deeper investigation specialists
-- `commands/`: workflow shortcuts
+- `commands/`: primary user-facing Rootly entry points
 - `rules/`: operational guardrails
 - `hooks/`: config validation hook
 - `scripts/`: helper scripts used by hooks
@@ -124,7 +128,7 @@ The included hook validates this file after edits.
 
 ## Recommended First Run
 
-Use the `setup-rootly` command or the `setup` skill first. It is intended to:
+Use the `rootly-setup` command first. It is intended to:
 
 - verify `ROOTLY_API_TOKEN`
 - confirm the hosted MCP server is reachable
@@ -139,6 +143,6 @@ Use the `setup-rootly` command or the `setup` skill first. It is intended to:
 
 ## Notes For Publishing
 
-- The plugin is hosted-MCP-first, with Cursor-native workflow layers on top
+- The plugin is hosted-MCP-first, with a command-first workflow layer on top
 - Auth is handled through `ROOTLY_API_TOKEN`, not a hardcoded token placeholder
 - If Rootly later ships OAuth for the hosted MCP server, the auth story can be upgraded to match Cursor's OAuth-native flow

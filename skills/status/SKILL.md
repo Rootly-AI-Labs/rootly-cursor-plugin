@@ -12,6 +12,12 @@ metadata:
 
 Use this skill to turn incident context into a clear status update.
 
+## Default behavior
+
+- If the user provides only an incident ID, default to an internal status update.
+- If the user says "write a customer update" or "write a leadership update", adapt tone and wording to that audience.
+- Do not ask the user which audience they mean unless the difference materially changes the response and the prompt gives no clue.
+
 ## Workflow
 
 ### 1. Gather the current state
@@ -50,3 +56,4 @@ Keep the output short and specific:
 - Do not invent certainty.
 - If the root cause is not confirmed, say it is still under investigation.
 - Prefer plain language over operator jargon when the audience is external.
+- Default to producing the update immediately, not discussing format options first.

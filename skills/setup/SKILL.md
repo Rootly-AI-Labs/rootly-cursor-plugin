@@ -12,6 +12,12 @@ metadata:
 
 Use this skill when the user needs help configuring or validating the Rootly plugin.
 
+## Default behavior
+
+- If the user says only "set up Rootly" or "is Rootly working?", do not ask for a more detailed prompt.
+- Default to checking auth, verifying MCP connectivity, and then reporting exactly what works and what still needs fixing.
+- If setup is already working, finish with a short "ready to use" summary and suggest the next command or skill.
+
 ## Goals
 
 - confirm the Rootly MCP connection is configured correctly
@@ -29,6 +35,8 @@ Confirm the user understands that this plugin expects:
 - the plugin MCP config to send `Authorization: Bearer ${env:ROOTLY_API_TOKEN}`
 
 If the token is missing, explain exactly what needs to be set before continuing.
+
+If the token appears to be present, do not stop there. Continue to an actual connectivity check.
 
 ### 2. Verify MCP connectivity
 
@@ -58,6 +66,8 @@ at `.cursor/rootly-config.json`.
 
 Use service names only when the user confirms them or when Rootly data clearly identifies the mapping.
 
+If the user does not care about repo mapping yet, skip it and keep setup moving.
+
 ### 4. Confirm success
 
 Finish with a short readiness summary:
@@ -67,13 +77,14 @@ Finish with a short readiness summary:
 
 - Auth: [configured]
 - MCP connection: [working]
+- Tool call: [successful (get_server_version)]
 - Repo mapping: [configured or skipped]
 
 ### Try Next
-- respond-to-incident
-- check-oncall
-- generate-retro
-- deploy-safety
+- /rootly-incident
+- /rootly-oncall
+- /rootly-retro
+- /rootly-deploy-check
 ```
 
 ## Guidance
@@ -81,3 +92,4 @@ Finish with a short readiness summary:
 - Keep setup concise and procedural.
 - Prefer validating the real connection over just describing configuration.
 - If setup is partially complete, say exactly what works and what still needs attention.
+- Prefer action over explanation. Validate first, then explain only what is necessary.

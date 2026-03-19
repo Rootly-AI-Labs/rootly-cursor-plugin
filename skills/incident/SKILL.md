@@ -12,6 +12,12 @@ metadata:
 
 Use this skill when the user needs fast incident triage with Rootly data.
 
+## Default behavior
+
+- If the user provides only an incident ID, do not ask for more context.
+- Treat a bare incident ID as a request for a complete incident response brief.
+- If the user says "look into this incident" without an ID, search active incidents and help narrow to the right one.
+
 ## Workflow
 
 ### 1. Identify the incident
@@ -68,3 +74,4 @@ Keep the output compact and operational:
 - Distinguish facts from inferences.
 - If historical matches are weak, say so.
 - If a tool returns partial or missing data, continue with what is available instead of stopping entirely.
+- Default to producing the brief, not explaining the workflow.

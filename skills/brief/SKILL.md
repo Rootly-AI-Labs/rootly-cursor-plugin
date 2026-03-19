@@ -12,6 +12,12 @@ metadata:
 
 Use this skill when the user wants a short, high-signal incident summary for decision makers.
 
+## Default behavior
+
+- If the user provides only an incident ID, default to a leadership-ready brief.
+- Keep the brief short enough to scan quickly.
+- If the user asks for a "brief", assume they want impact, current state, risk, and next step rather than a deep narrative.
+
 ## Workflow
 
 ### 1. Gather the essentials
@@ -49,3 +55,4 @@ Focus on:
 - Lead with impact and current state.
 - Keep it brief enough to read in under 30 seconds.
 - Distinguish confirmed facts from working hypotheses.
+- Default to a crisp written brief, not an exploratory analysis.

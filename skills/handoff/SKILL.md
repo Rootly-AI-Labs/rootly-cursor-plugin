@@ -12,6 +12,12 @@ metadata:
 
 Use this skill to prepare a clean handoff for the next responder.
 
+## Default behavior
+
+- If the user provides only an incident ID, default to an incident-specific handoff.
+- If the user says only "prepare a handoff", default to the current on-call handoff view.
+- Do not ask for extra structure unless the user explicitly wants a special format.
+
 ## Workflow
 
 ### 1. Gather current context
@@ -49,3 +55,4 @@ Capture:
 - Bias toward unresolved items and next steps.
 - Do not bury the most urgent risk.
 - If there is no active incident, make it a pure on-call handoff note instead.
+- Prefer a handoff note the next responder can act on immediately.
