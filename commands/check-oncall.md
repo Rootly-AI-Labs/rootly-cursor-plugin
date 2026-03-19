@@ -5,4 +5,4 @@ description: Show the current Rootly on-call picture, including handoff and work
 
 # Check On-Call
 
-Follow the **oncall-dashboard** skill to present the current on-call, next handoff, and any workload or fatigue concerns.
+Follow the **oncall** skill to present the current on-call, next handoff, and any workload or fatigue concerns.

@@ -1,5 +1,5 @@
 ---
-name: oncall-dashboard
+name: oncall
 description: Show current on-call status, handoffs, shift metrics, and workload context. Use when the user asks who is on call, wants handoff context, or needs quick staffing visibility during an incident.
 license: Apache-2.0
 metadata:
@@ -8,7 +8,7 @@ metadata:
   category: on-call
 ---
 
-# Rootly On-Call Dashboard
+# Rootly On-Call
 
 Use this skill when the user needs a compact on-call view.
 

@@ -1,5 +1,5 @@
 ---
-name: retrospective-writer
+name: retro
 description: Generate a structured post-incident retrospective from Rootly incident data. Use after an incident is resolved or when the user wants a markdown PIR draft.
 license: Apache-2.0
 metadata:
@@ -8,7 +8,7 @@ metadata:
   category: retrospectives
 ---
 
-# Rootly Retrospective Writer
+# Rootly Retro
 
 Use this skill to draft a markdown retrospective from Rootly incident data.
 

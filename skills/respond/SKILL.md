@@ -1,5 +1,5 @@
 ---
-name: incident-response
+name: respond
 description: Investigate and respond to a production incident. Use when paged, when an incident ID is provided, or when the user needs a concise response brief with Rootly context.
 license: Apache-2.0
 metadata:
@@ -8,7 +8,7 @@ metadata:
   category: incident-management
 ---
 
-# Rootly Incident Response
+# Rootly Respond
 
 Use this skill when the user needs fast incident triage with Rootly data.
 
