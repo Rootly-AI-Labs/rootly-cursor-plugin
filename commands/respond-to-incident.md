@@ -5,4 +5,4 @@ description: Triage a live production incident using Rootly context and produce 
 
 # Respond To Incident
 
-Follow the **respond** skill to investigate the incident, gather Rootly context, and produce a concise response brief.
+Follow the **incident** skill to investigate the incident, gather Rootly context, and produce a concise response brief.

@@ -22,8 +22,11 @@ The plugin targets Rootly's hosted MCP endpoint at `https://mcp.rootly.com/mcp`.
 ### Skills
 
 - `setup`: first-run onboarding, auth checks, and MCP verification
-- `respond`: live incident triage and response briefs
+- `incident`: live incident triage and response briefs
 - `oncall`: current on-call, handoffs, and workload context
+- `status`: internal or external incident status updates
+- `brief`: concise leadership and stakeholder summaries
+- `handoff`: incident and on-call handoff notes
 - `retro`: markdown PIR and retrospective drafts
 - `deploy-check`: pre-deploy incident and on-call risk review
 
@@ -38,6 +41,9 @@ The plugin targets Rootly's hosted MCP endpoint at `https://mcp.rootly.com/mcp`.
 - `setup-rootly`
 - `respond-to-incident`
 - `check-oncall`
+- `write-status`
+- `generate-brief`
+- `prepare-handoff`
 - `generate-retro`
 - `deploy-safety`
 
