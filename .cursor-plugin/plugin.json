@@ -16,7 +16,6 @@
     "incident-response",
     "retrospectives"
   ],
-  "logo": "logo.svg",
   "rules": "rules",
   "skills": "skills",
   "agents": "agents",
