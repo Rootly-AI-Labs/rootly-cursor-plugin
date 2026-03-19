@@ -1,5 +1,11 @@
 # Rootly Cursor Plugin
 
+<div align="center">
+  <img src="logo.svg" alt="Rootly" height="80" style="margin-right: 20px;">
+  <span style="font-size: 24px; margin: 0 10px;">×</span>
+  <img src="cursor-logo.png" alt="Cursor" height="80" style="margin-left: 20px;">
+</div>
+
 A Cursor plugin for Rootly incident response. It connects Cursor to Rootly's hosted MCP server and layers on Cursor-native skills, agents, commands, and rules for production response workflows.
 
 ## Overview
