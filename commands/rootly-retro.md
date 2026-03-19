@@ -8,7 +8,7 @@ Generate a complete markdown retrospective draft now.
 - If I provided an incident ID, use it immediately.
 - If I provided only the incident ID, do not ask for more prompt detail.
 - Default to markdown suitable for a PIR or postmortem document.
-- Prefer a clean, reusable draft over a long narrative report.
+- Prefer a clean, reusable draft over either a long narrative report or an overly compressed outline.
 - Use explicit placeholders like `TBD` or `Unknown from incident data` when key facts are missing.
 - Do not pad the draft with URLs, reporter metadata, or low-signal observations unless they materially help the retrospective.
 - Do not include Jira links, Slack channels, owner identity, source, or Rootly record status by default.
@@ -26,9 +26,9 @@ Expected output should include:
 - what did not go well
 - action items with owner and due date placeholders
 
-Keep the output concise and evidence-based:
+Keep the output clean and evidence-based:
 
-- use short paragraphs or bullets
+- use readable sections with short paragraphs or bullets
 - avoid speculative assumptions presented as facts
 - if related-incident signal is weak, either omit it or compress it to one short note
 - prefer `Unknown from incident data` over invented impact or root cause details

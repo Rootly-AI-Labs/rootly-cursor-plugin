@@ -38,7 +38,7 @@ For the selected incident:
 
 ### 3. Present a response brief
 
-Keep the output compact and operational:
+Keep the output clean and operational:
 
 ```md
 ## Incident Response Brief
@@ -53,7 +53,7 @@ Keep the output compact and operational:
 - Key risk: [main uncertainty, blocker, or "none identified"]
 ```
 
-- Default to 5-7 bullets total.
+- Default to a short, well-structured brief.
 - Put the current operational state first.
 - Omit secondary metadata unless it changes what the user should do next.
 - If related incidents or suggested solutions are weak, compress that to one short note instead of a full section.

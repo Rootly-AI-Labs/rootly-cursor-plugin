@@ -55,7 +55,7 @@ Capture:
 - Do not bury the most urgent risk.
 - If there is no active incident, make it a pure on-call handoff note instead.
 - Prefer a handoff note the next responder can act on immediately.
-- Prefer 6 bullets or fewer before any optional extra detail.
+- Prefer a clean, well-structured note over either a roster dump or an overly compressed summary.
 - Prefer bullets, not tables, for the default handoff.
 - Do not dump the full on-call roster; summarize coverage and name only the most relevant current/next owners.
 - Mention only the most important active incidents or recent carryover items, not a full recent-incident list.

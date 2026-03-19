@@ -36,7 +36,7 @@ Use this skill to draft a markdown retrospective from Rootly incident data.
 ### 3. Draft clean markdown
 
 Use only details supported by the data.
-Prefer a polished first draft, not an exhaustive incident export.
+Prefer a polished first draft that is clean and reusable, not an exhaustive incident export and not a skeletal outline.
 
 ```md
 # Retrospective: [Incident Title]
