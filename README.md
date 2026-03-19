@@ -2,6 +2,18 @@
 
 Use Rootly inside Cursor for incident response, on-call, status updates, handoffs, retrospectives, and deploy checks.
 
+This plugin brings Rootly context directly into Cursor so you can investigate incidents, understand on-call coverage, draft communications, and prepare follow-up artifacts without constantly switching between tools. It is designed to be command-first, with clean workflows for the tasks teams repeat most during production response.
+
+Use it when you want to:
+
+- validate Rootly connectivity from Cursor
+- investigate an incident with live Rootly context
+- check current on-call ownership and upcoming handoffs
+- draft status updates, briefs, handoffs, and retrospectives
+- sanity-check deploy risk against active incidents and responder coverage
+
+The main user-facing interface is the Rootly command set. Start with `/rootly-setup`, then use the other commands as focused workflows for the job at hand.
+
 ## Quick Start
 
 1. Install **Rootly** from the Cursor marketplace, or add this repository as a plugin source.
@@ -15,6 +27,15 @@ Use Rootly inside Cursor for incident response, on-call, status updates, handoff
 - `ROOTLY_API_TOKEN`
 - Rootly MCP connectivity
 - a lightweight tool call
+
+## How To Use It
+
+The simplest way to use the plugin is through the `/rootly-*` commands below. In practice, most teams start with:
+
+- `/rootly-incident <id>` during active response
+- `/rootly-oncall` for ownership and handoff context
+- `/rootly-status <id>` for updates
+- `/rootly-retro <id>` after resolution
 
 ## Commands
 
