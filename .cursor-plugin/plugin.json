@@ -1,7 +1,7 @@
 {
   "name": "rootly",
   "version": "1.0.0",
-  "description": "Rootly incident management for Cursor - investigate incidents, check on-call, inspect services, and work from your IDE",
+  "description": "Rootly incident response for Cursor with MCP, skills, agents, commands, and rules for incidents, on-call, retrospectives, and deploy safety",
   "author": {
     "name": "Rootly AI Labs",
     "email": "support@rootly.com",
@@ -13,7 +13,9 @@
     "on-call",
     "sre",
     "mcp",
-    "reliability"
+    "reliability",
+    "incident-response",
+    "retrospectives"
   ],
   "logo": "logo.svg",
   "primaryColor": "#D97757"

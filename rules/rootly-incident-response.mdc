@@ -1,0 +1,13 @@
+---
+description: Rootly operational guardrails for incident response, on-call checks, and deployment safety
+alwaysApply: true
+---
+
+rootly-incident-response:
+
+- When production incidents, outages, responder coordination, on-call status, or deployment risk are discussed, prefer using Rootly context before giving generic advice.
+- Treat Rootly incident data as the source of truth for status, severity, timestamps, and ownership when available.
+- Do not fabricate incident facts, timelines, affected services, or responder assignments. If data is missing, state that clearly.
+- Before proposing write actions in Rootly, summarize the intended change and wait for explicit user approval.
+- During active incidents, prioritize concise operational output: current status, likely impact, related incidents, suggested next steps, and current on-call context.
+- When historical matches are weak or ambiguous, label them as low-confidence rather than overstating certainty.

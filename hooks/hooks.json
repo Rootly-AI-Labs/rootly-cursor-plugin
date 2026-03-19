@@ -1,0 +1,10 @@
+{
+  "hooks": {
+    "afterFileEdit": [
+      {
+        "command": "./scripts/validate-rootly-config.sh",
+        "matcher": ".cursor/rootly-config.json"
+      }
+    ]
+  }
+}
