@@ -1,5 +1,9 @@
 # Rootly Cursor Plugin
 
+[![Rootly Integration](https://img.shields.io/badge/Rootly-Integration-0F172A?style=flat)](https://rootly.com)
+[![License](https://img.shields.io/badge/License-Apache%202.0-16A34A?style=flat)](LICENSE)
+[![Cursor Plugin](https://img.shields.io/badge/Cursor-Plugin-2563EB?style=flat)](https://cursor.com)
+
 Use Rootly inside Cursor for incident response, on-call, status updates, handoffs, retrospectives, and deploy checks.
 
 This plugin brings Rootly context directly into Cursor so you can investigate incidents, understand on-call coverage, draft communications, and prepare follow-up artifacts without constantly switching between tools. It is designed to be command-first, with clean workflows for the tasks teams repeat most during production response.
