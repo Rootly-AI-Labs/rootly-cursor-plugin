@@ -21,6 +21,7 @@ The plugin targets Rootly's hosted MCP endpoint at `https://mcp.rootly.com/mcp`.
 
 ### Skills
 
+- `setup`: first-run onboarding, auth checks, and MCP verification
 - `incident-response`: live incident triage and response briefs
 - `oncall-dashboard`: current on-call, handoffs, and workload context
 - `retrospective-writer`: markdown PIR and retrospective drafts
@@ -34,6 +35,7 @@ The plugin targets Rootly's hosted MCP endpoint at `https://mcp.rootly.com/mcp`.
 
 ### Commands
 
+- `setup-rootly`
 - `respond-to-incident`
 - `check-oncall`
 - `generate-retro`
@@ -77,6 +79,8 @@ This is the best supported auth pattern for the plugin today:
 
 After publication, install **Rootly** from **Settings > Plugins** or by using `/add-plugin rootly`.
 
+After install, the best first action is to run the setup workflow so auth and MCP connectivity are validated before the first incident task.
+
 ### From Source
 
 If you are testing before marketplace publication:
@@ -111,6 +115,15 @@ If a repository maps cleanly to one or more Rootly services, you can keep that m
 ```
 
 The included hook validates this file after edits.
+
+## Recommended First Run
+
+Use the `setup-rootly` command or the `setup` skill first. It is intended to:
+
+- verify `ROOTLY_API_TOKEN`
+- confirm the hosted MCP server is reachable
+- test a lightweight Rootly tool call
+- optionally map the current repository to Rootly services
 
 ## Support
 
