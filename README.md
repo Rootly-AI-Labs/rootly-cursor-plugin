@@ -28,6 +28,14 @@ The main user-facing interface is the Rootly command set. Start with `/rootly-se
 4. Restart Cursor if needed.
 5. Run `/rootly-setup`.
 
+Example:
+
+```bash
+export ROOTLY_API_TOKEN=your_token_here
+```
+
+Cursor must be launched after the variable is set so the app can inherit it.
+
 `/rootly-setup` verifies:
 
 - `ROOTLY_API_TOKEN`

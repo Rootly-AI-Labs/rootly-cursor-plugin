@@ -16,6 +16,7 @@ Use this skill when the user needs help configuring or validating the Rootly plu
 
 - If the user says only "set up Rootly" or "is Rootly working?", do not ask for a more detailed prompt.
 - Default to checking auth, verifying MCP connectivity, and then reporting exactly what works and what still needs fixing.
+- Format each check with a clear status dot: `🟢` for pass, `🔴` for fail.
 - If setup is already working, finish with a short "ready to use" summary and suggest the next command or skill.
 
 ## Goals
@@ -75,10 +76,10 @@ Finish with a short readiness summary:
 ```md
 ## Rootly Setup Complete
 
-- Auth: [configured]
-- MCP connection: [working]
-- Tool call: [successful (get_server_version)]
-- Repo mapping: [configured or skipped]
+- 🟢 Auth: [configured]
+- 🟢 MCP connection: [working]
+- 🟢 Tool call: [successful (get_server_version)]
+- 🟢 Repo mapping: [configured or skipped]
 
 ### Try Next
 - /rootly-incident
@@ -86,6 +87,8 @@ Finish with a short readiness summary:
 - /rootly-retro
 - /rootly-deploy-check
 ```
+
+If a check fails, use `🔴` on that line and follow it immediately with the exact fix step.
 
 ## Guidance
 
