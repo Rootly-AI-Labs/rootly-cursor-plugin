@@ -5,19 +5,27 @@ description: Configure and verify the Rootly Cursor plugin, including auth, MCP 
 
 Validate my Rootly setup end-to-end now.
 
-- Confirm `ROOTLY_API_TOKEN` is configured.
+- Confirm `ROOTLY_API_TOKEN` is present.
 - Test Rootly MCP connectivity.
 - Run one lightweight tool call: `get_server_version`.
-- Report pass or fail for each step.
+- Run one harmless Rootly read check such as `search_incidents` with a tiny result set.
+- Output exactly one final status block only.
 - Use `🟢` for a passing check and `🔴` for a failing check.
-- For anything failing, give exact fix steps.
+- If something fails, give exact fix steps immediately below the failed line or in one short `Fix:` section.
 
-If everything is working, include this success summary:
+Use these labels in the final block:
 
-- `🟢 Auth: configured`
+- `Token detected:`
+- `MCP connection:`
+- `Tool call:`
+- `Rootly read access:`
+
+If everything is working, the success block should look like:
+
+- `🟢 Token detected: yes`
 - `🟢 MCP connection: working`
 - `🟢 Tool call: successful (get_server_version)`
+- `🟢 Rootly read access: working`
 
-If something fails, use the same format with `🔴` and then give the exact fix steps immediately below the failed line.
-
+Do not repeat the same status lines elsewhere in the response.
 Do not ask me to add more prompt text before starting.
