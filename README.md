@@ -1,5 +1,7 @@
 # Rootly Cursor Plugin
 
+![Rootly x Cursor banner](./rootlyaixcursor.png)
+
 [![Rootly Integration](https://img.shields.io/badge/Rootly-Integration-0F172A?style=flat)](https://rootly.com)
 [![License](https://img.shields.io/badge/License-Apache%202.0-16A34A?style=flat)](LICENSE)
 [![Cursor Plugin](https://img.shields.io/badge/Cursor-Plugin-2563EB?style=flat)](https://cursor.com)
