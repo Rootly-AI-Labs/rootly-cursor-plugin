@@ -1,6 +1,6 @@
 ---
 description: Rootly operational guardrails for incident response, on-call checks, and deployment safety
-alwaysApply: true
+alwaysApply: false
 ---
 
 rootly-incident-response:
