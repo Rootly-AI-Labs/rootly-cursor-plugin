@@ -1,9 +1,0 @@
-{
-  "rootly": {
-    "type": "streamable-http",
-    "url": "https://mcp.rootly.com/mcp",
-    "headers": {
-      "Authorization": "Bearer ${env:ROOTLY_API_TOKEN}"
-    }
-  }
-}
