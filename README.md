@@ -23,22 +23,20 @@ The main user-facing interface is the Rootly command set. Start with `/rootly-se
 ## Quick Start
 
 1. Install **Rootly** from the Cursor marketplace, or add this repository as a plugin source.
-2. Create a Rootly API token in **Rootly > Settings > API Keys**.
-3. Make sure `ROOTLY_API_TOKEN` is available in the environment Cursor launches with.
-4. Restart Cursor if needed.
-5. Run `/rootly-setup`.
+2. Run `/rootly-setup`.
+3. Cursor handles OAuth2 login automatically -- a browser window opens for you to authenticate with Rootly.
 
-Example:
+No API token needed. OAuth2 is the default authentication method.
+
+**Fallback (environments without browser access):**
 
 ```bash
 export ROOTLY_API_TOKEN=your_token_here
 ```
 
-Cursor must be launched after the variable is set so the app can inherit it.
-
 `/rootly-setup` verifies:
 
-- `ROOTLY_API_TOKEN`
+- OAuth2 authentication (or API token fallback)
 - Rootly MCP connectivity
 - a lightweight tool call
 
