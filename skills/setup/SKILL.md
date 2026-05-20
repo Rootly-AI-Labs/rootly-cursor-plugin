@@ -4,7 +4,7 @@ description: Set up and verify the Rootly Cursor plugin. Use on first run, when 
 license: Apache-2.0
 metadata:
   author: Rootly AI Labs
-  version: "1.0.0"
+  version: "1.1.0"
   category: onboarding
 ---
 
@@ -15,7 +15,7 @@ Use this skill when the user needs help configuring or validating the Rootly plu
 ## Default behavior
 
 - If the user says only "set up Rootly" or "is Rootly working?", do not ask for a more detailed prompt.
-- Default to checking token presence, verifying MCP connectivity, and then validating one real Rootly read.
+- Default to verifying MCP connectivity via OAuth2, then validating one real Rootly read.
 - Format each check with a clear status dot: `🟢` for pass, `🔴` for fail.
 - Output exactly one final status block only.
 - If setup is already working, finish with a short "ready to use" summary and suggest the next command or skill.
@@ -23,27 +23,37 @@ Use this skill when the user needs help configuring or validating the Rootly plu
 ## Goals
 
 - confirm the Rootly MCP connection is configured correctly
-- verify `ROOTLY_API_TOKEN` is available
+- confirm OAuth2 authentication works (or fallback API token)
 - confirm Rootly tools are reachable
 - confirm the token can perform a harmless Rootly data read
 - optionally map the current repository to Rootly services
 
 ## Workflow
 
-### 1. Check token presence
+### 1. Verify MCP connectivity and OAuth2
 
-Confirm the user understands that this plugin expects:
-
-- `ROOTLY_API_TOKEN` to be set in the environment Cursor uses
-- the plugin MCP config to send `Authorization: Bearer ${env:ROOTLY_API_TOKEN}`
-
-If the token is missing, explain exactly what needs to be set before continuing.
-
-### 2. Verify MCP connectivity
-
-Ask the agent to try a lightweight Rootly MCP call such as:
+Try a lightweight Rootly MCP call:
 
 - `get_server_version`
+
+If the call fails with 401 / OAuth prompt, Cursor should automatically start the OAuth2 flow -- a browser window will open for the user to log in to Rootly and grant access. Once authorized, retry.
+
+If OAuth2 is not available or fails:
+
+> **Fallback: API Token**
+>
+> 1. Create a Rootly API token in **Rootly > Settings > API Keys**
+> 2. Set `ROOTLY_API_TOKEN` in the environment Cursor uses
+> 3. Restart Cursor so it can inherit the variable
+> 4. Re-run `/rootly-setup`
+
+### 2. Verify authentication
+
+After MCP connectivity works, call:
+
+- `getCurrentUser`
+
+This confirms the authenticated user and team. Report who is logged in.
 
 If the call fails:
 
@@ -53,18 +63,17 @@ If the call fails:
 
 ### 3. Verify Rootly read access
 
-After MCP connectivity works, run one harmless Rootly read such as:
+Run one harmless Rootly read such as:
 
 - `search_incidents` with a tiny result set
-- another harmless read-only Rootly data query if more appropriate
 
-This check exists to distinguish "token present" from "token actually authorized for Rootly data access".
+This check exists to distinguish "authenticated" from "actually authorized for Rootly data access".
 
 If the read fails:
 
 - report the failure as `🔴 Rootly read access:`
 - include the exact failure when useful, such as `401 Unauthorized`
-- tell the user the next concrete fix step, such as rotating the token and relaunching Cursor
+- tell the user the next concrete fix step
 
 ### 4. Optional repo mapping
 
@@ -90,8 +99,8 @@ Finish with one final status block only:
 ```md
 ## Rootly Setup Complete
 
-- 🟢 Token detected: yes
 - 🟢 MCP connection: working
+- 🟢 Authentication: OAuth2 (logged in as {user name})
 - 🟢 Tool call: successful (get_server_version)
 - 🟢 Rootly read access: working
 ```

@@ -1,7 +1,7 @@
 {
   "name": "rootly",
   "displayName": "Rootly",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Rootly incident response for Cursor with MCP, commands, agents, rules, and skills for incidents, on-call, status updates, retrospectives, and deploy safety",
   "author": {
     "name": "Rootly AI Labs",
