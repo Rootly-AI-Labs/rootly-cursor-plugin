@@ -9,6 +9,10 @@
 > over; review the [migration guide](https://github.com/rootlyhq/agent-skills/blob/main/docs/migration.md)
 > and validate your workflows before disabling an existing installation.
 >
+> For this plugin's legacy `status` workflow, use the canonical
+> `incident-communications` skill for incident updates. The canonical `status`
+> alias now routes to `service-health`.
+>
 > The documentation below is retained for legacy installations.
 
 # Rootly Cursor Plugin
